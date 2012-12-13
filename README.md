@@ -5,7 +5,7 @@ and my emon_tx code.
 ## USAGE
 
 ### Arduino IDE
-* Copy this code to `~/sketchbook/libraries/nanode_rf_utils`
+* Clone this repository in your  `~/sketchbook/libraries/` directory
 * That's it!
 
 ### Eclipse
