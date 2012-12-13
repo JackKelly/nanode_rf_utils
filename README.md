@@ -9,5 +9,5 @@ and my emon_tx code.
 * That's it!
 
 ### Eclipse
-* Set this up as an "AVR Cross Target Static Library" as per
+* Set this up as an "AVR Cross Target Static Library" as per the "ArduinoCore" section in
 [these instructions](http://horrorcoding.altervista.org/arduino-development-with-eclipse-a-step-by-step-tutorial-to-the-basic-setup/)
