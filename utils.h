@@ -36,6 +36,12 @@ uint32_t read_uint32_from_serial();
  */
 bool in_future(const uint32_t& deadline);
 
+template<class T>
+bool roughly_equal(const T& a, const T& b, const T delta)
+{
+    return ( b > (a-delta) && b < (a+delta) );
+}
+
 };
 
 #endif // CC_UTILS_H
