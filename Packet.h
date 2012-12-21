@@ -25,7 +25,7 @@
 /**
  * Simple base class for representing a packet of consecutive bytes.
  */
-template<uint8_t MAX_PACKET_LENGTH=22>
+template<uint8_t MAX_PACKET_LENGTH>
 class Packet {
 public:
     /**********************************************
@@ -134,7 +134,7 @@ protected:
  * RxPacket
  **********************************************/
 
-template<uint8_t MAX_PACKET_LENGTH=22>
+template<uint8_t MAX_PACKET_LENGTH=16>
 class RxPacket : public Packet<MAX_PACKET_LENGTH>
 {
 public:
