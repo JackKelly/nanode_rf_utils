@@ -13,7 +13,7 @@
 #define BOOST_TEST_MODULE PacketTest
 #include <boost/test/unit_test.hpp>
 
-void append_array(RXPacket<>& rx_packet,
+void append_array(RxPacket<>& rx_packet,
         const byte data[], const index_t length)
 {
     for (index_t i=0; i<length; i++){
@@ -21,9 +21,9 @@ void append_array(RXPacket<>& rx_packet,
     }
 }
 
-BOOST_AUTO_TEST_CASE(trxPacket1)
+BOOST_AUTO_TEST_CASE(tRxPacket1)
 {
-    RXPacket<> rx_packet;
+    RxPacket<> rx_packet;
 
     const index_t LENGTH = 12;
     const byte data[] = {
@@ -35,9 +35,9 @@ BOOST_AUTO_TEST_CASE(trxPacket1)
     BOOST_CHECK(rx_packet.is_ok());
 }
 
-BOOST_AUTO_TEST_CASE(trxPacket2)
+BOOST_AUTO_TEST_CASE(tRxPacket2)
 {
-    RXPacket<> rx_packet;
+    RxPacket<> rx_packet;
 
     const index_t LENGTH = 12;
     const byte data[] = {
@@ -49,9 +49,9 @@ BOOST_AUTO_TEST_CASE(trxPacket2)
     BOOST_CHECK(rx_packet.is_ok());
 }
 
-BOOST_AUTO_TEST_CASE(trxPacket3_chk_fail)
+BOOST_AUTO_TEST_CASE(tRxPacket3_chk_fail)
 {
-    RXPacket<> rx_packet;
+    RxPacket<> rx_packet;
 
     const index_t LENGTH = 12;
     const byte data[] = {

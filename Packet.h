@@ -131,11 +131,11 @@ protected:
 };
 
 /**********************************************
- * RXPacket
+ * RxPacket
  **********************************************/
 
 template<uint8_t MAX_PACKET_LENGTH=22>
-class RXPacket : public Packet<MAX_PACKET_LENGTH>
+class RxPacket : public Packet<MAX_PACKET_LENGTH>
 {
 public:
     using Packet<MAX_PACKET_LENGTH>::byte_index;
@@ -144,9 +144,9 @@ public:
     using Packet<MAX_PACKET_LENGTH>::length;
     using Packet<MAX_PACKET_LENGTH>::modular_sum;
 
-	RXPacket(): Packet<MAX_PACKET_LENGTH>(), timecode(0), health(NOT_CHECKED) {}
+	RxPacket(): Packet<MAX_PACKET_LENGTH>(), timecode(0), health(NOT_CHECKED) {}
 
-	virtual ~RXPacket() {}
+	virtual ~RxPacket() {}
 
 	void append(const byte& value) // override
 	{
@@ -220,7 +220,7 @@ protected:
  **********************************************/
 
 template<uint8_t MAX_PACKET_LENGTH=22>
-class TXPacket : public Packet<MAX_PACKET_LENGTH>
+class TxPacket : public Packet<MAX_PACKET_LENGTH>
 {
 public:
     using Packet<MAX_PACKET_LENGTH>::reset;
