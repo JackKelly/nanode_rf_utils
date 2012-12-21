@@ -34,14 +34,21 @@ public:
     static void print(const char* str, const PrintFormat print_format = DEC);
     static void print(const int& str, const PrintFormat print_format = DEC);
     static void print(const unsigned int& str, const PrintFormat print_format = DEC);
-
     static void println(const char* str, const PrintFormat print_format = DEC);
+
+    static bool available();
+    static char read();
+    static void write(const char value);
+    static void flush();
+
 private:
     static void format(const PrintFormat print_format);
 };
 
 extern FakeSerial Serial;
 
-const millis_t millis();
+millis_t millis();
+
+
 
 #endif /* FAKEARDUINO_H_ */

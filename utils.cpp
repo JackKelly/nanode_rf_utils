@@ -1,4 +1,10 @@
+#ifdef TESTING
+#include "tests/FakeArduino.h"
+#include <cstdlib> // for strtoul
+#else
 #include <Arduino.h>
+#endif // TESTING
+
 #include "utils.h"
 #include "Logger.h"
 
@@ -48,7 +54,7 @@ uint32_t utils::read_uint32_from_serial()
         return UINT32_INVALID;
     }
 
-    return  strtoul(buff, NULL, 0);
+    return strtoul(buff, NULL, 0);
 }
 
 
@@ -66,16 +72,16 @@ bool utils::in_future(const uint32_t& deadline)
 }
 
 
-void utils::convert_to_bytes(const uint16_t& input, byte* output)
+void utils::uint_to_bytes(const uint16_t& input, byte* output)
 {
     output[0] = input >> 8; // MSB
     output[1] = input & 0x00FF; // LSB
 }
 
 
-void utils::convert_to_bytes(const uint32_t& input, byte* output)
+void utils::uint_to_bytes(const uint32_t& input, byte* output)
 {
-    convert_to_bytes(uint16_t(input >> 16), output);
-    convert_to_bytes(uint16_t(input && 0x0000FFFF), output+2);
+    uint_to_bytes(uint16_t(input >> 16), output);
+    uint_to_bytes(uint16_t(input && 0x0000FFFF), output+2);
 }
 

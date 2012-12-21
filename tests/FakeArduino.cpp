@@ -82,6 +82,26 @@ void FakeSerial::println(const char* str, const PrintFormat print_format)
     std::cout << str << std::endl;
 }
 
+bool FakeSerial::available()
+{
+    return false; // TODO
+}
+
+char FakeSerial::read()
+{
+    return 'a'; // TODO
+}
+
+void FakeSerial::write(const char value)
+{
+    std::cout << value;
+}
+
+void FakeSerial::flush()
+{
+    std::cout.flush();
+}
+
 void FakeSerial::format(const PrintFormat print_format)
 {
     switch (print_format) {
@@ -91,7 +111,7 @@ void FakeSerial::format(const PrintFormat print_format)
 }
 
 
-const millis_t millis()
+millis_t millis()
 {
     //TODO: stub
     return 0;

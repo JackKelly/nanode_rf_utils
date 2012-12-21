@@ -8,6 +8,8 @@
 #ifndef UTILSCONSTS_H_
 #define UTILSCONSTS_H_
 
+#include <stdint.h>
+
 const uint32_t UINT32_INVALID = 0xFFFFFFFF;
 typedef uint32_t millis_t; /* type for storing times in milliseconds */
 typedef uint8_t  index_t;  /* type for storing indices */

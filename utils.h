@@ -13,6 +13,11 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#ifdef TESTING
+#include <stdint.h>
+typedef uint8_t byte;
+#endif
+
 #include "utilsconsts.h"
 
 namespace utils {
@@ -42,9 +47,9 @@ bool roughly_equal(const T& a, const T& b, const T delta)
     return ( b > (a-delta) && b < (a+delta) );
 }
 
-void convert_to_bytes(const uint16_t& input, byte* output);
+void uint_to_bytes(const uint16_t& input, byte* output);
 
-void convert_to_bytes(const uint32_t& input, byte* output);
+void uint_to_bytes(const uint32_t& input, byte* output);
 
 }; // utils namespace
 
