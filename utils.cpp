@@ -65,3 +65,17 @@ bool utils::in_future(const uint32_t& deadline)
         return false;
 }
 
+
+void utils::convert_to_bytes(const uint16_t& input, byte* output)
+{
+    output[0] = input >> 8; // MSB
+    output[1] = input & 0x00FF; // LSB
+}
+
+
+void utils::convert_to_bytes(const uint32_t& input, byte* output)
+{
+    convert_to_bytes(uint16_t(input >> 16), output);
+    convert_to_bytes(uint16_t(input && 0x0000FFFF), output+2);
+}
+

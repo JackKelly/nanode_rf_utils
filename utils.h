@@ -42,6 +42,10 @@ bool roughly_equal(const T& a, const T& b, const T delta)
     return ( b > (a-delta) && b < (a+delta) );
 }
 
-};
+void convert_to_bytes(const uint16_t& input, byte* output);
+
+void convert_to_bytes(const uint32_t& input, byte* output);
+
+}; // utils namespace
 
 #endif // CC_UTILS_H

@@ -278,7 +278,7 @@ public:
 private:
 	static State state; // state RFM12b is in
 	static volatile bool currently_receiving;
-	static TXPacket tx_packet; // the packet about to be sent
+	static TXPacket<> tx_packet; // the packet about to be sent
 
 	/**
 	 * Get the next byte in Rfm12b::tx_packet
@@ -397,7 +397,7 @@ template<typename T>
 volatile bool Rfm12b<T>::currently_receiving;
 
 template<typename T>
-TXPacket Rfm12b<T>::tx_packet;
+TXPacket<> Rfm12b<T>::tx_packet;
 
 template<typename T>
 PacketBuffer<T> Rfm12b<T>::rx_packet_buffer;
