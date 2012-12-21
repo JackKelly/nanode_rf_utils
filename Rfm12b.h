@@ -252,29 +252,6 @@ public:
 
     static PacketBuffer<T> rx_packet_buffer;
 
-#if 0
-	/**
-	 * Poll a CurrentCost transceiver (TRX), e.g. an EDF Wireless Transmitter Plug,
-	 * to ask for the latest wattage reading.
-	 */
-	static void poll_cc_trx(const id_t& id);
-
-	/**
-	 * Send acknowledgement to complete pairing.
-	 */
-	static void ack_cc_trx(const id_t& id);
-
-	/**
-	 * Turn TRX on or off.
-	 */
-	static void change_trx_state(const id_t& id, const bool state);
-
-	/**
-	 * Blocks until finished TX.
-	 */
-    static void send_command_to_trx(const byte& cmd1, const byte& cmd2, const id_t& id);
-#endif
-
 private:
 	static State state; // state RFM12b is in
 	static volatile bool currently_receiving;

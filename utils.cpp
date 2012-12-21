@@ -82,6 +82,6 @@ void utils::uint_to_bytes(const uint16_t& input, byte* output)
 void utils::uint_to_bytes(const uint32_t& input, byte* output)
 {
     uint_to_bytes(uint16_t(input >> 16), output);
-    uint_to_bytes(uint16_t(input && 0x0000FFFF), output+2);
+    uint_to_bytes(uint16_t(input & 0x0000FFFF), output+2);
 }
 

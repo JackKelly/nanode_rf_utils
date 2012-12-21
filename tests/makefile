@@ -17,7 +17,7 @@ Utils_test: Utils_test.o ../utils.o FakeArduino.o
 
 # LINKING STEP:
 $(EXECS):
-	${CXX} $^ -lboost_unit_test_framework -o $@ && ./$@
+	${CXX} $^ -lboost_unit_test_framework -o $@
 
 # INCLUDE COMPILATION DEPENDENCIES
 -include *.d
