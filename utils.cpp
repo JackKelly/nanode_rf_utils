@@ -85,3 +85,21 @@ void utils::uint_to_bytes(const uint32_t& input, byte* output)
     uint_to_bytes(uint16_t(input & 0x0000FFFF), output+2);
 }
 
+uint16_t utils::bytes_to_uint16(const byte* input)
+{
+    uint16_t output;
+    output = input[0];
+    output <<= 8;
+    output |= input[1];
+    return output;
+}
+
+uint32_t utils::bytes_to_uint32(const volatile byte* input)
+{
+    uint32_t output = input[0];
+    for (uint8_t i=1; i<4; i++) {
+        output <<= 8;
+        output |= input[i];
+    }
+    return output;
+}

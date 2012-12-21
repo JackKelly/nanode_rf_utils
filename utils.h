@@ -51,6 +51,10 @@ void uint_to_bytes(const uint16_t& input, byte* output);
 
 void uint_to_bytes(const uint32_t& input, byte* output);
 
+uint16_t bytes_to_uint16(const byte* input);
+
+uint32_t bytes_to_uint32(const volatile byte* input);
+
 }; // utils namespace
 
 #endif // CC_UTILS_H
