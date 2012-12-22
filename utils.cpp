@@ -72,20 +72,20 @@ bool utils::in_future(const uint32_t& deadline)
 }
 
 
-void utils::uint_to_bytes(const uint16_t& input, byte* output)
+void utils::uint_to_bytes(const uint16_t& input, volatile byte* output)
 {
     output[0] = input >> 8; // MSB
     output[1] = input & 0x00FF; // LSB
 }
 
 
-void utils::uint_to_bytes(const uint32_t& input, byte* output)
+void utils::uint_to_bytes(const uint32_t& input, volatile byte* output)
 {
     uint_to_bytes(uint16_t(input >> 16), output);
     uint_to_bytes(uint16_t(input & 0x0000FFFF), output+2);
 }
 
-uint16_t utils::bytes_to_uint16(const byte* input)
+uint16_t utils::bytes_to_uint16(const volatile byte* input)
 {
     uint16_t output;
     output = input[0];

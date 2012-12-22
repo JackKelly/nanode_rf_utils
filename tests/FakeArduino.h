@@ -9,6 +9,7 @@
 #define FAKEARDUINO_H_
 
 #include <inttypes.h>
+#include <cmath>
 #include "../utilsconsts.h"
 
 typedef uint8_t byte;
@@ -35,11 +36,16 @@ public:
     static void print(const int& str, const PrintFormat print_format = DEC);
     static void print(const unsigned int& str, const PrintFormat print_format = DEC);
     static void println(const char* str, const PrintFormat print_format = DEC);
+    static void print(const float& str, const PrintFormat print_format = DEC);
+    static void println(const float& str, const PrintFormat print_format = DEC);
 
     static bool available();
     static char read();
     static void write(const char value);
     static void flush();
+    static void begin(uint32_t);
+    static void end();
+
 
 private:
     static void format(const PrintFormat print_format);
@@ -49,6 +55,10 @@ extern FakeSerial Serial;
 
 millis_t millis();
 
+millis_t micros();
 
+int analogRead(uint8_t pin=1);
+
+#define round(x) ((x)>=0?(long)((x)+0.5):(long)((x)-0.5))
 
 #endif /* FAKEARDUINO_H_ */

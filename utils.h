@@ -44,14 +44,14 @@ bool in_future(const uint32_t& deadline);
 template<class T>
 bool roughly_equal(const T& a, const T& b, const T delta)
 {
-    return ( b > (a-delta) && b < (a+delta) );
+    return ( b >= (a-delta) && b <= (a+delta) );
 }
 
-void uint_to_bytes(const uint16_t& input, byte* output);
+void uint_to_bytes(const uint16_t& input, volatile byte* output);
 
-void uint_to_bytes(const uint32_t& input, byte* output);
+void uint_to_bytes(const uint32_t& input, volatile byte* output);
 
-uint16_t bytes_to_uint16(const byte* input);
+uint16_t bytes_to_uint16(const volatile byte* input);
 
 uint32_t bytes_to_uint32(const volatile byte* input);
 

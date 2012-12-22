@@ -82,6 +82,20 @@ void FakeSerial::println(const char* str, const PrintFormat print_format)
     std::cout << str << std::endl;
 }
 
+
+void FakeSerial::print(const float& str, const PrintFormat print_format)
+{
+    format(print_format);
+    std::cout << str;
+}
+
+void FakeSerial::println(const float& str, const PrintFormat print_format)
+{
+    format(print_format);
+    std::cout << str << std::endl;
+}
+
+
 bool FakeSerial::available()
 {
     return false; // TODO
@@ -115,4 +129,24 @@ millis_t millis()
 {
     //TODO: stub
     return 0;
+}
+
+millis_t micros()
+{
+    // TODO: stub
+    return 0;
+}
+
+void FakeSerial::begin(uint32_t baudrate)
+{
+}
+
+void FakeSerial::end()
+{
+    flush();
+}
+
+int analogRead(uint8_t pin)
+{
+    return 0; // TODO could read from a data file.
 }

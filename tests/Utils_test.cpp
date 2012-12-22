@@ -101,3 +101,13 @@ BOOST_AUTO_TEST_CASE(bytesToUint32Test)
     const byte byte_string4[] = {0x00, 0xEF, 0x00, 0x01};
     BOOST_CHECK_EQUAL(bytes_to_uint32(byte_string4), 0x00EF0001);
 }
+
+BOOST_AUTO_TEST_CASE(roughlyEqual)
+{
+    BOOST_CHECK(roughly_equal<float>(0.1, 0.1, 0.001));
+    BOOST_CHECK(roughly_equal<float>(0.1, 0.2, 0.11));
+    BOOST_CHECK(roughly_equal<float>(0.2, 0.1, 0.11));
+    BOOST_CHECK(!roughly_equal<float>(0.2, 0.1, 0.09));
+    BOOST_CHECK(roughly_equal<uint8_t>(10, 11, 1));
+    BOOST_CHECK(!roughly_equal<uint8_t>(10, 11, 0));
+}
