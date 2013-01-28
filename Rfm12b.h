@@ -88,9 +88,15 @@ public:
 	    currently_receiving = false;
 	    spi::init();
 
-	    spi::transfer_word(0x0000);
+	    Serial.println(F("SPI initialised"));
 
-	    delay(2000); // give RFM time to start up
+        delay(2000); // give RFM time to start up (should only take 100ms)
+        spi::transfer_word(0xCA80); // enable sensitive reset (required for software reset)
+        spi::transfer_word(0xFE00); // software reset command
+	    delay(1000); // give RFM time to do software reset (which should only take 0.25ms)
+	    spi::transfer_word(0xCA81); // disable sensitive reset
+	    spi::transfer_word(0x0000); // clear any interrupts
+	    spi::transfer_word(0x0000); //
 
 	    /***************************
 	     * BEGIN RFM12b COMMANDS...
@@ -244,9 +250,15 @@ public:
 	    // Clock pin freq = 1.0Mhz (lowest poss)
 	    spi::transfer_word(0xC000);
 
-	    log(INFO, PSTR("attaching interrupt"));
-	    delay(500);
+	    Serial.println(F("Attaching interrupt"));
+
+	    delay(50); // Time to finish printing "Attaching interrupt" to serial port
+	    spi::transfer_word(0x0000); // clear any interrupts on RFM12b
+        spi::transfer_word(0x0000);
+        delay(1);
 	    attachInterrupt(0, interrupt_handler, LOW);
+
+	    Serial.println(F("Interrupt attached"));
 	    return;
 	}
 
